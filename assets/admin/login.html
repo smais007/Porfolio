@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Login Form Design | CodeLab</title>
+      <link rel="stylesheet" href="login.css">
+      <style>
+        .error-message {
+          color: red;
+        }
+      </style>
+      <script>
+        function validateForm() {
+          var email = document.getElementById('email').value;
+          var password = document.getElementById('password').value;
+          var errorElement = document.getElementById('error-message');
+
+          errorElement.innerHTML = ''; // Clear previous error messages
+
+          if (email === ' ') {
+            errorElement.innerHTML = 'Email Address is required.';
+            return false;
+          }
+
+          if (password === ' ') {
+            errorElement.innerHTML = 'Password is required.';
+            return false;
+          }
+
+          // Perform email and password verification
+          if (email !== 'test@gmail.com') { // Replace 'admin123' with your actual password validation logic
+            errorElement.innerHTML = 'Invalid Email address.';
+            return false;
+          }
+
+
+          if (password !== 'admin123') { // Replace 'admin123' with your actual password validation logic
+            errorElement.innerHTML = 'Invalid password.';
+            return false;
+          }
+
+          // Password is verified, redirect to admin dashboard
+          window.location.href = 'dashbord.html'; // Replace 'admin_dashboard.html' with the actual URL of your admin dashboard
+          return false; // Prevent form submission
+        }
+      </script>
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="title">
+           Admin Login 
+         </div>
+         <form onsubmit="return validateForm()">
+            <div class="field">
+               <input type="text" id="email" required>
+               <label>Email Address</label>
+            </div>
+            <div class="field">
+               <input type="password" id="password" required>
+               <label>Password</label>
+            </div>
+            <div class="content">
+               <div class="checkbox">
+                  <input type="checkbox" id="remember-me">
+                  <label for="remember-me">Remember me</label>
+               </div>
+               <div class="pass-link">
+                  <a href="#">Forgot password?</a>
+               </div>
+            </div>
+            <div class="field">
+               <input type="submit" value="Login">
+            </div>
+            <!-- <div class="signup-link">
+               Not a member? <a href="#">Signup now</a>
+            </div> -->
+            <div id="error-message" class="error-message"></div>
+         </form>
+      </div>
+   </body>
+</html>
